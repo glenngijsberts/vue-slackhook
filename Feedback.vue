@@ -44,7 +44,7 @@ export default {
 
         webhookUrl: {
             type: String,
-            default: 'No webhook applied'
+            default: 'No webhook url is applied'
         },
 
         submitButtonText: {
@@ -75,7 +75,8 @@ export default {
             subject: '',
             description: '',
 
-            formShow: false
+            formShow: false,
+
         }
     },
 
@@ -97,13 +98,22 @@ export default {
         },
 
         storeData() {
+
+            if (this.webhookUrl == 'No webhook url is applied') {
+
+                alert('Error! The form has not been submitted.');
+                console.log('Developer: There is no webhook applied to the form')
+
+            } else {
             
             let url = this.webhookUrl;
-            let text = 'test again'
+            let name = this.name;
+            let subject = this.subject;
+            let description = this.description;
 
             axios({
                 data: 'payload=' + JSON.stringify({
-                    "text": text
+                    "text": `Feedback from ${name} with the subject ${subject} with the description ${description}`
                 }),
                 dataType: 'json',
                 processData: false,
@@ -112,6 +122,8 @@ export default {
             });
 
             this.clearData();
+
+            }
             
         },
 

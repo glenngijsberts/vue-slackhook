@@ -33,11 +33,19 @@
 </template>
 
 <script>
+
+import axios from 'axios'
+
 export default {
 
     name: 'feedback',
 
     props: {
+
+        webhookUrl: {
+            type: String,
+            default: 'No webhook applied'
+        },
 
         submitButtonText: {
             type: String,
@@ -79,9 +87,37 @@ export default {
 
         },
 
+        clearData() {
+
+            this.name = ''; this.subject = ''; this.description = '';
+            this.formShow = false;
+
+            alert('Feedback is submitted');
+
+        },
+
+        storeData() {
+            
+            let url = this.webhookUrl;
+            let text = 'test again'
+
+            axios({
+                data: 'payload=' + JSON.stringify({
+                    "text": text
+                }),
+                dataType: 'json',
+                processData: false,
+                method: 'POST',
+                url: url
+            });
+
+            this.clearData();
+            
+        },
+
         checkForm() {
             
-
+            this.name  == '' || this.subject == '' || this.description == '' ? alert('All fields are required') : this.storeData();
             
         }
 

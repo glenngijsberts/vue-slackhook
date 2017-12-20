@@ -6,9 +6,13 @@
 
             <span class="close-form" @click="toggleForm()">&#10006;</span>
 
-            <div class="group">
-                <label for="name">Name</label>
-                <input type="text" id="name" class="input" v-model="name">
+            <div v-if="!this.laravel">
+
+                <div class="group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" class="input" v-model="name">
+                </div>
+
             </div>
 
             <div class="group">
@@ -65,6 +69,21 @@ export default {
         icon: {
             type: String,
             default: 'user'
+        },
+
+        laravel: {
+            type: Boolean,
+            default: false
+        },
+
+        page: {
+            type: String,
+            default: 'No page found'
+        },
+
+        user: {
+            type: String,
+            default: 'No user found'
         }
 
     },
@@ -110,6 +129,14 @@ export default {
             let name = this.name;
             let subject = this.subject;
             let description = this.description;
+            let user = this.user;
+            let page = this.page;
+
+            if (!this.laravel) {
+                let text = `Feedback from ${name} with the subject ${subject} with the description ${description}`
+            } else {
+                let text = `Feedback from ${user} with the subject ${subject} with the description ${description} on page ${page}`
+            }
 
             axios({
                 data: 'payload=' + JSON.stringify({
@@ -128,8 +155,16 @@ export default {
         },
 
         checkForm() {
+
+            if (!this.laravel) {
             
             this.name  == '' || this.subject == '' || this.description == '' ? alert('All fields are required') : this.storeData();
+
+            } else {
+
+                this.subject == '' || this.description == '' ? alert('All fields are required') : this.storeData();
+
+            }
             
         }
 

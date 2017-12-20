@@ -5,6 +5,8 @@
   buttonText="Feedback here"
   :buttonFa="true" 
   icon="question"
+  :laravel="false"
+  webhookUrl="https://hooks.slack.com/services/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"
    />
 
 </template>

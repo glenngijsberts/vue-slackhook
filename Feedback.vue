@@ -9,19 +9,19 @@
             <div v-if="!this.laravel">
 
                 <div class="group">
-                    <label for="name">Name</label>
+                    <label for="name">{{ this.labelName }}</label>
                     <input type="text" id="name" class="input" v-model="name">
                 </div>
 
             </div>
 
             <div class="group">
-                <label for="name">Subject</label>
+                <label for="name">{{ this.labelSubject }}</label>
                 <input type="text" id="subject" class="input" v-model="subject">
             </div>
 
             <div class="group">
-                <label for="description">Feedback</label>
+                <label for="description">{{ this.labelDescription }}</label>
                 <textarea id="description" class="input" v-model="description"></textarea>
             </div>
 
@@ -74,6 +74,21 @@ export default {
         theme: {
             type: Boolean,
             default: false
+        },
+
+        labelName: {
+            type: String,
+            default: 'Name'
+        },
+
+        labelSubject: {
+            type: String,
+            default: 'Subject'
+        },
+
+        labelDescription: {
+            type: String,
+            default: 'Description'
         },
 
         laravel: {
@@ -349,7 +364,4 @@ export default {
         cursor: pointer;
     }
 
-
-
 </style>
-

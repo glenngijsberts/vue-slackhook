@@ -98,6 +98,24 @@ export default {
         applicationName: {
             type: String,
             default: ''
+        },
+        
+        //Label for the name field
+        labelName: {
+            type: String,
+            default: 'Name'
+        },
+        
+        //Label for the subject field
+        labelSubject: {
+            type: String,
+            default: 'Subject'
+        },
+        
+        //Label for the description field
+        labelDescription: {
+            type: String,
+            default: 'Description'
         }
 
     }

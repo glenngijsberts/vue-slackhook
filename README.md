@@ -4,7 +4,7 @@
 
 ## About the project
 
-The current version of this project is 0.0.1. I intend to contribute a lot more to this package with new features and more possibilities. For now I have only tested this as a component within a Vue-loader project.
+The current version of this project is 0.0.8. I intend to contribute a lot more to this package with new features and more possibilities. For now I have only tested this as a component within a Vue-loader project and a Laravel Project.
 
 ## Installation
 

@@ -1,6 +1,6 @@
 <template>
     
-    <div class="feedback-container">
+    <div class="feedback-container" :class="{ themeApplied : this.theme }">
 
         <form class="feedback-form" @submit.prevent="checkForm()" v-show="formShow">
 
@@ -69,6 +69,11 @@ export default {
         icon: {
             type: String,
             default: 'user'
+        },
+
+        theme: {
+            type: Boolean,
+            default: false
         },
 
         laravel: {
@@ -183,7 +188,8 @@ export default {
             let icon = this.icon;
 
             return `fa fa-${icon}`
-        }
+        },
+
 
     }
   
@@ -201,22 +207,91 @@ export default {
 
     .feedback-container .feedback-form {
 
-            position: absolute;
-            bottom: 20px;
-            right: 0px;
+        position: absolute;
+        bottom: 20px;
+        right: 0px;
 
-            background-color: lightgrey;
-            padding: 40px;
-            border: 1px solid grey;
-            border-radius: 4px;
+        background-color: lightgrey;
+        padding: 40px;
+        border: 1px solid grey;
+        border-radius: 4px;
 
         }
 
-            .feedback-container .feedback-form .close-form {
-                position: absolute;
-                right: 10px;
-                top: 10px;
-                cursor: pointer;
-            }
+    .feedback-container .feedback-form .close-form {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        cursor: pointer;
+    }
+
+    .themeApplied button {
+        background-color: #002b38;
+        position: fixed;
+        color: white;
+        text-align: center;
+        right: 20px;
+        bottom: 20px;
+        padding: 5px 15px 5px 15px;
+        border: 1px solid #02b6df;
+        border-radius: 4px;
+        font-size: 22px;
+        cursor: pointer;
+    }
+
+    .themeApplied.feedback-container .feedback-form {
+        position: absolute;
+        bottom: -10px;
+        right: -10px;
+        background-color: #f7f7f7;
+        padding: 60px;
+        border: 2px solid #d4d4d4;
+        border-radius: 4px;
+        width: 800px;
+    }
+
+    .themeApplied.feedback-container .feedback-form .group {
+        margin-bottom: 20px;
+    }
+
+    .themeApplied.feedback-container .feedback-form .group input, .themeApplied.feedback-container .feedback-form .group textarea {
+        width: 100%;
+        padding: 5px 10px 5px 10px;
+        border: 2px solid #d4d4d4;
+        font-size: 16px;
+        border-radius: 4px;
+        height: 28px;
+    }
+
+    .themeApplied.feedback-container .feedback-form .group textarea {
+        height: auto;
+        padding: 10px;
+    }
+
+
+
+    .themeApplied.feedback-container .feedback-form .group label {
+        display: block;
+        margin-bottom: 10px;
+        font-size: 16px;
+        font-weight: bold;
+        font-family: sans-serif;
+    }
+
+    .themeApplied.feedback-container .feedback-form .submit-button {
+        background-color: #002b38;
+        position: relative;
+        color: white;
+        text-align: center;
+        right: 0px;
+        bottom: 0px;
+        padding: 10px 15px 10px 15px;
+        border: 1px solid #02b6df;
+        border-radius: 4px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+
 
 </style>

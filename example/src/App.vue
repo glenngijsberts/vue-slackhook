@@ -2,11 +2,12 @@
 
   <Feedback 
   submitButtonText="Send"
-  buttonText="Feedback here"
-  :buttonFa="true" 
+  buttonText="?"
+  :buttonFa="false" 
   icon="question"
   :laravel="true"
   webhookUrl="https://hooks.slack.com/services/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"
+  :theme="true"
    />
 
 </template>

@@ -86,6 +86,12 @@ export default {
         icon: {
             type: String,
             default: 'user'
+        },
+        
+        //Set this prop to true to activate a pre-defined theme
+        theme: {
+            type: Boolean,
+            default: false
         }
 
     }
@@ -143,6 +149,10 @@ There are `props` available specific for the Laravel framework.
         }
 
 ```
+
+## Styling
+
+Besides the pre-defined theme this component has CSS classes on different elements to style the component. All CSS classes will be available soon.
 
 ## Contribution
 

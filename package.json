@@ -1,7 +1,7 @@
 {
   "name": "vue-slackhook",
   "description": "A Vue component to implement a feedback form with a slack webhook integration",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "author": "Glenn Gijsberts",
   "license": "MIT",
   "private": false,

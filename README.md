@@ -92,6 +92,12 @@ export default {
         theme: {
             type: Boolean,
             default: false
+        },
+        
+        //Fill out the application name (Used for slack pre-message)
+        applicationName: {
+            type: String,
+            default: ''
         }
 
     }

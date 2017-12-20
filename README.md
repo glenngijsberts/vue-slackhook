@@ -8,9 +8,11 @@ The current version of this project is 0.0.1. I intend to contribute a lot more 
 
 ## Installation
 
-    * Make sure to have a slack workspace available and create a new channel to recieve the feedback data
-    * Login to your slack account/workspace and create a new app over [here](https://api.slack.com/apps?new_app=1)
-    * Create a new incoming webhook [here](https://my.slack.com/services/new/incoming-webhook/) and retrieve the webhook URL.
+- Make sure to have a slack workspace available and create a new channel to recieve the feedback data
+
+- Login to your slack account/workspace and create a new app over [here](https://api.slack.com/apps?new_app=1)
+
+- Create a new incoming webhook [here](https://my.slack.com/services/new/incoming-webhook/) and retrieve the webhook URL.
 
 After these steps run the following command
 
@@ -75,7 +77,7 @@ export default {
         },
 
         //Font-awesome icon as button text (make sure to include font awesome)
-        buttonFA: {
+        buttonFa: {
             type: Boolean,
             default: false
         },
@@ -100,6 +102,22 @@ export default {
 </template>    
 
 ```
+
+## Using Laravel
+
+In your `app.js`
+
+```javascript
+
+Vue.component('feedback', require('vue-slackhook'));
+
+```
+
+#### camelCase vs kebab-case
+
+It is possible that your props are not working. Instead of writing your props camelCase you must write them kebab-case. You can read more [here](https://vuejs.org/v2/guide/components.html#camelCase-vs-kebab-case). 
+
+Example: `<Feedback button-text="Feedback here" :button-fa=true icon="question" submit-button-text="Post!" />`
 
 ## Contribution
 

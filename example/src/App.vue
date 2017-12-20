@@ -3,7 +3,7 @@
   <Feedback 
   submitButtonText="Send"
   buttonText="Feedback here"
-  :buttonFA="true" 
+  :buttonFa="true" 
   icon="question"
    />
 

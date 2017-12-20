@@ -25,7 +25,7 @@
  
         </form>    
 
-        <button @click="toggleForm()"><span class="button-text" v-if="!this.buttonFA">{{ this.buttonText }}</span><span class="button-icon" v-else><i :class="fontAwesome"></i></span></button>
+        <button @click="toggleForm()"><span class="button-text" v-if="!this.buttonFa">{{ this.buttonText }}</span><span class="button-icon" v-else><i :class="fontAwesome"></i></span></button>
 
     
     </div>
@@ -57,7 +57,7 @@ export default {
             default: '?'
         },
 
-        buttonFA: {
+        buttonFa: {
             type: Boolean,
             default: false
         },
@@ -155,15 +155,16 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 
     .feedback-container {
 
         position: fixed;
         right: 20px;
         bottom: 20px;
+    }
 
-        .feedback-form {
+    .feedback-container .feedback-form {
 
             position: absolute;
             bottom: 20px;
@@ -174,15 +175,13 @@ export default {
             border: 1px solid grey;
             border-radius: 4px;
 
-            .close-form {
+        }
+
+            .feedback-container .feedback-form .close-form {
                 position: absolute;
                 right: 10px;
                 top: 10px;
                 cursor: pointer;
             }
-
-        }
-
-    }
 
 </style>

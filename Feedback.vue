@@ -133,14 +133,14 @@ export default {
             let page = this.page;
 
             if (!this.laravel) {
-                let text = `Feedback from ${name} with the subject ${subject} with the description ${description}`
+                var text = `Feedback from ${name} with the subject ${subject} with the description ${description}`
             } else {
-                let text = `Feedback from ${user} with the subject ${subject} with the description ${description} on page ${page}`
+                var text = `Feedback from ${user} with the subject ${subject} with the description ${description} on page ${page}`
             }
 
             axios({
                 data: 'payload=' + JSON.stringify({
-                    "text": `Feedback from ${name} with the subject ${subject} with the description ${description}`
+                    "text": text
                 }),
                 dataType: 'json',
                 processData: false,

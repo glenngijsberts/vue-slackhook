@@ -89,6 +89,11 @@ export default {
         user: {
             type: String,
             default: 'No user found'
+        },
+
+        applicationName: {
+            type: String,
+            default: ''
         }
 
     },
@@ -131,22 +136,74 @@ export default {
             } else {
             
             let url = this.webhookUrl;
-            let name = this.name;
-            let subject = this.subject;
-            let description = this.description;
-            let user = this.user;
-            let page = this.page;
+            var appName = this.applicationName;
+            var noPage = 'No page is included'
+            
+            if (appName != '') {
+                var slackMessage = `New feedback message from ${appName}`
+            } else {
+                var slackMessage = 'New feedback message'
+            }
+            
 
             if (!this.laravel) {
-                var text = `Feedback from ${name} with the subject ${subject} with the description ${description}`
+                
+                var text = {
+                    name: this.name,
+                    subject: this.subject,
+                    description: this.description,
+                    page: noPage
+                }
+                
             } else {
-                var text = `Feedback from ${user} with the subject ${subject} with the description ${description} on page ${page}`
+                
+                var text = {
+                    name: this.user,
+                    subject: this.subject,
+                    description: this.description,
+                    page: this.page
+                }
+                
             }
 
             axios({
-                data: 'payload=' + JSON.stringify({
-                    "text": text
-                }),
+
+                    data: 'payload=' + JSON.stringify(
+
+                        {
+                            "attachments": [
+                                {
+                                    "fallback": slackMessage,
+                                    "pretext": slackMessage,
+
+                                    "fields": [
+                                        {
+                                            "title": "Onderwerp",
+                                            "value": text.subject,
+                                            "short": false
+                                        },
+                                            {
+                                            "title": "Bericht",
+                                            "value": text.description,
+                                            "short": false
+                                            },
+                                            {
+                                            "title": "Gebruiker",
+                                            "value": text.name,
+                                            "short": false
+                                        },
+                                        {
+                                            "title": "Pagina",
+                                            "value": text.page,
+                                            "short": false
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+
+                    ),
+
                 dataType: 'json',
                 processData: false,
                 method: 'POST',
@@ -295,3 +352,4 @@ export default {
 
 
 </style>
+

@@ -119,6 +119,31 @@ It is possible that your props are not working. Instead of writing your props ca
 
 Example: `<Feedback button-text="Feedback here" :button-fa=true icon="question" submit-button-text="Post!" />`
 
+#### Props for Laravel
+
+There are `props` available specific for the Laravel framework.
+
+```javascript
+        //If true props page and user will be included for sending to slack
+        laravel: {
+            type: Boolean,
+            default: false
+        },
+        
+        //Use this prop with the currentRouteName() function to send the current route
+        page: {
+            type: String,
+            default: 'No page found'
+        },
+        
+        //Use this prop with the Auth::user()->username function to send the logged in user
+        user: {
+            type: String,
+            default: 'No user found'
+        }
+
+```
+
 ## Contribution
 
 If you have any questions, please feel free to contact me at [twitter](https://twitter.com/glenngijsberts) or create a new issue. Feel free to use this project yourself.

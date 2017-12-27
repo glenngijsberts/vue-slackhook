@@ -5,7 +5,6 @@
   buttonText="?"
   :buttonFa="false" 
   icon="question"
-  webhookUrl="https://hooks.slack.com/services/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"
   :theme="true"
   labelName="Naam"
   labelSubject="Onderwerp"

@@ -1,3 +1,5 @@
+This package is no longer maintained. Please be careful using this package, it will expose your webhook url to the client so only use it if you are sure your application is not user facing.
+
 # Vue-Slackhook
 
 > A Vue component to implement a feedback form for users to give feedback on your application, with integration of a Slackwebhook.
